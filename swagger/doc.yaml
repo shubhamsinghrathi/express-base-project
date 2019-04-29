@@ -1,0 +1,60 @@
+---
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Project Name
+  description: APIs
+  termsOfService: http://swagger.io/terms/
+basePath: "/api"
+tags:
+- name: Application API Section
+  description: General APIs
+schemes:
+- http
+- https
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  "/v1/test":
+    get:
+      tags:
+      - user
+      description: This Api is used for testing
+      operationId: for the URL
+      produces:
+      - application/json
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "#/definitions/successResponse"
+definitions:
+  successResponse:
+    properties:
+      status:
+        required: false
+        type: boolean
+        example: true
+      message:
+        required: false
+        type: string
+        example: "success"
+      result:
+        required: false
+        type: object
+        example: {}
+      responseCode:
+        required: false
+        type: number
+        example: 200
+      time:
+        required: false
+        type: number
+        example: 1554874331596
+  400error:
+    properties:
+      message:
+        type: string
+        example: 400 Bad Request
